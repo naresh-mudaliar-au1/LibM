@@ -9,8 +9,8 @@ import { bookRoute } from "./books";
 
 const app = express();
 
-const PORT = process.env.PORT || 8080;
-const HOST = process.env.HOST || "localhost";
+const PORT = process.env.PORT;
+const HOST = process.env.HOST;
 
 app.use(json());
 
