@@ -6,7 +6,7 @@ const auth = async (req, res, next) => {
     const { authorization } = req.headers;
     if (!authorization) throw new Error("Access denied. No token provided");
 
-    const mySecretKey = process.env.SECRETKEY || "mytoken";
+    const mySecretKey = process.env.SECRETKEY;
 
     const verifyToken = jwt.verify(authorization, mySecretKey);
 

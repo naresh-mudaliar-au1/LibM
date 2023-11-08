@@ -27,8 +27,10 @@ const getAll = async (query) => {
 
 const deleteBook = async (id) => {
   try {
+    const getBook = await bookModel.findOne({ _id: id });
+    if (!getBook) throw new Error("Book not found!");
+    
     const removeBook = await bookModel.deleteOne({ _id: id });
-    if (!removeBook) throw new Error("Book not found!");
     return removeBook;
   } catch (error) {
     return { error: true, message: error.message };

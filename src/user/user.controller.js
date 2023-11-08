@@ -47,7 +47,7 @@ const login = async (req, res) => {
 
     if (!verifyPassword) throw new Error("Wrong Password");
 
-    const secretKey = process.env.SECRETKEY || "mytoken";
+    const secretKey = process.env.SECRETKEY;
     const token = verifyPassword && jwt.sign({ username }, secretKey);
 
     verifyPassword &&
